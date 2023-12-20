@@ -20,7 +20,8 @@ variable "spanner_config" {
     deletion_protection = bool
   })
   default = {
-    instance_name = "value"
+    instance_name = "spanner-k8s"
+    database_name = "spanner-k8s-span"
   }
   description = "The configuration specifications for the Spanner instance"
 
