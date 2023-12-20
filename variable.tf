@@ -67,3 +67,14 @@ variable "gke_config" {
 
   description = "The configuration specifications for a GKE Autopilot cluster"
 }
+
+variable "backend_service_accounts" {
+  type        = list(any)
+  description = "List of backend service accounts that have Spanner access"
+  default     = [
+    "profile-app",
+    "matchmaking-app",
+    "item-app",
+    "tradepost-app"
+  ]
+}
