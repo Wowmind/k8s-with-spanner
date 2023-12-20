@@ -39,3 +39,17 @@ variable "spanner_config" {
     error_message = "Processing units must be 1000 or less, and be a multiple of 100."
   }
 }
+
+
+variable "gcp_project_services" {
+  type        = list(any)
+  description = "GCP Service APIs (<api>.googleapis.com) to enable for this project"
+  default     = [
+    "compute.googleapis.com",
+    "artifactregistry.googleapis.com",
+    "clouddeploy.googleapis.com",
+    "cloudbuild.googleapis.com",
+    "container.googleapis.com",
+    "spanner.googleapis.com"
+  ]
+}
