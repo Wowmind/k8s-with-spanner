@@ -22,6 +22,10 @@ variable "spanner_config" {
   default = {
     instance_name = "spanner-k8s"
     database_name = "spanner-k8s-span"
+    configuration = "regional-us-central1"
+    display_name = "testing-k8s-spanner"
+    processing_units = 100
+    deletion_protection = yes
   }
   description = "The configuration specifications for the Spanner instance"
 
