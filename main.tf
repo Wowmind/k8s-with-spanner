@@ -4,7 +4,7 @@ resource "google_spanner_instance" "instance" {
   display_name     = var.spanner_config.display_name
   processing_units = var.spanner_config.processing_units
   labels           = {
-    "env" = var.resource_env_label
+    "foo" = "bar"
   }
 
   depends_on = [google_project_service.service_api]
