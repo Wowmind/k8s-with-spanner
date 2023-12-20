@@ -53,3 +53,17 @@ variable "gcp_project_services" {
     "spanner.googleapis.com"
   ]
 }
+
+
+variable "gke_config" {
+  type = object({
+    cluster_name = string
+    location = string
+  })
+  default = {
+    cluster_name = "k8s-spanner"
+    location = "us-central1"
+  }
+
+  description = "The configuration specifications for a GKE Autopilot cluster"
+}
