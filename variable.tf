@@ -61,7 +61,7 @@ variable "gke_config" {
     location = string
   })
   default = {
-    cluster_name = "k8s-spanner"
+    cluster_name = "hello-cluster"
     location = "us-central1"
   }
 
