@@ -21,7 +21,7 @@ variable "spanner_config" {
   })
   default = {
     instance_name = "spanner-k8s"
-    database_name = "spanner-k8s-span"
+    database_name = "hello-database"
     configuration = "regional-us-central1"
     display_name = "testing-k8s-spanner"
     processing_units = 100
