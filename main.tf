@@ -17,7 +17,9 @@ resource "google_spanner_instance" "instance" {
 resource "google_spanner_database" "hello-database" {
   instance            = google_spanner_instance.instance.name
   name                = var.spanner_config.database_name
-  ddl      = "CREATE TABLE Players (PlayerUuid STRING(36) NOT NULL, FirstName STRING(1024), LastName STRING(1024), BirthDate DATE) PRIMARY KEY(PlayerUuid)"
+  ddl      = [
+    "CREATE TABLE Players (PlayerUuid STRING(36) NOT NULL, FirstName STRING(1024), LastName STRING(1024), BirthDate DATE) PRIMARY KEY(PlayerUuid)"
+  ]
   deletion_protection = var.spanner_config.deletion_protection
  
 }
