@@ -1,7 +1,7 @@
 resource "google_service_account" "gke-sa" {
 account_id    = "gke-cluster-account"
-  display_name  = "Service account to manage GKE Autopilot cluster"
-  project       = var.project_id
+display_name  = "Service account to manage GKE Autopilot cluster"
+project       = var.project_id
 }
 
 resource "google_project_iam_binding" "gke-identity-binding" {
