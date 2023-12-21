@@ -45,7 +45,7 @@ resource "google_container_cluster" "sample-game-gke" {
   enable_autopilot  = true
 
   resource_labels = {
-    "environment" = var.resource_env_label
+    "foo"         = "bar"
   }
 
   depends_on = [google_service_account.gke-sa]
