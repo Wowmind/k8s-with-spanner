@@ -33,6 +33,6 @@ resource "google_project_iam_binding" "my_iam_binding" {
   project = "spanner-gke"
   role    = "roles/iam.workloadIdentityUser"
   members = [
-    "serviceAccount:spanner-gke.svc.id.goog[hello-namespace/ksa-helloapp]"
+    "serviceAccount:spanner-gke.svc.id.goog[hello-namespace/gke-helloapp]"
   ]
 }
