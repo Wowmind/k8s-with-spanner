@@ -61,16 +61,3 @@ provider "kubernetes" {
   token                  = "${data.google_client_config.current.access_token}"
   cluster_ca_certificate = "${base64decode(data.google_container_cluster.my_cluster.master_auth.0.cluster_ca_certificate)}"
 }
-
-resource "google_service_account" "my_service_account" {
-  account_id   = "gsa-helloapp"
-  display_name = "My Service Account"
-}
-
-resource "google_project_iam_binding" "my_iam_binding" {
-  project = "var.project_id"
-  role    = "roles/spanner.admin"
-  members = [
-    "serviceAccount:${google_service_account.my_service_account.email}"
-  ]
-}
