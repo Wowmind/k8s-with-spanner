@@ -9,7 +9,7 @@ resource "google_spanner_instance" "instance" {
     "foo" = "bar"
   }
 
-  depends_on = [google_project_service.service_api]
+  depends_on = [google_service_account.my_service_account]
 }
 
 // create spanner database
@@ -35,7 +35,7 @@ resource "google_container_cluster" "sample-game-gke" {
   # Use locked down service account
   cluster_autoscaling {
     auto_provisioning_defaults {
-      service_account = google_service_account.gke-sa.email
+      service_account = google_service_account.gke-helloapp
     }
   }
 
@@ -46,7 +46,7 @@ resource "google_container_cluster" "sample-game-gke" {
     "foo"         = "bar"
   }
 
-  depends_on = [google_service_account.gke-sa]
+  depends_on = [google_service_account.gke-helloapp]
 }
 
 data "google_container_cluster" "gke-provider" {
