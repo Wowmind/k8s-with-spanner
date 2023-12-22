@@ -6,7 +6,7 @@ project       = var.project_id
 
 resource "google_project_iam_binding" "gke-identity-binding" {
   project       = var.project_id
-  role          = "roles/container.nodeServiceAccount"
+  role          = "roles/kunernetesEngineAdmin"
 
   members = [
      "serviceAccount:${google_service_account.gke-helloapp.email}",
