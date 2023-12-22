@@ -16,3 +16,4 @@ output "kubernetes_cluster_name" {
 output "kubernetes_clusterr_host" {
   value = google_container_cluster.gke-helloapp.endpoint
   description = "GKE Cluster host"
+}
