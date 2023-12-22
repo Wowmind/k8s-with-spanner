@@ -61,7 +61,7 @@ variable "gke_config" {
     location = string
   })
   default = {
-    cluster_name = "hello-cluster"
+    cluster_name = "hello-clusterapp"
     location = "us-central1"
   }
 

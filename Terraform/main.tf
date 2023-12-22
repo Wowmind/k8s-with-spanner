@@ -26,17 +26,19 @@ resource "google_spanner_database" "hello-database" {
 
 // create gke autopilot
 
-resource "google_container_cluster" "sample-game-gke" {
+resource "google_container_cluster" "cluster-hellooapp" {
   name              = var.gke_config.cluster_name
   location          = var.gke_config.location
   network           = google_compute_network.vpc.name
   subnetwork        = google_compute_subnetwork.subnet.name
+
 
   # Use locked down service account
   cluster_autoscaling {
     auto_provisioning_defaults {
       service_account = google_service_account.gke-helloapp.email
     }
+    
   }
 
   # Enabling Autopilot for this cluster
@@ -53,7 +55,7 @@ data "google_container_cluster" "gke-provider" {
   name        = var.gke_config.cluster_name
   location    = var.gke_config.location
 
-  depends_on  = [ google_container_cluster.sample-game-gke ]
+  depends_on  = [ google_container_cluster.cluster-hellooapp]
 }
 
 provider "kubernetes" {
