@@ -9,10 +9,10 @@ resource "google_project_iam_binding" "gke-identity-binding" {
   role          = "roles/container.nodeServiceAccount"
 
   members = [
-     "serviceAccount:${google_service_account.gke-sa.email}",
+     "serviceAccount:${google_service_account.gke-helloapp.email}",
   ]
 
-  depends_on = [google_project_service.service_api, google_service_account.gke-sa]
+  depends_on = [google_service_account.gke-helloapp]
 }
 
 
