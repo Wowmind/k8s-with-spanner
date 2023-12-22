@@ -12,7 +12,7 @@ resource "google_project_iam_binding" "gke-identity-binding" {
      "serviceAccount:${google_service_account.gke-sa.email}",
   ]
 
-  depends_on = [google_project_service.service_api, google_service_account.gke-sa]
+  depends_on = [google_project_service.service_api, google_service_account.gke-helloapp]
 }
 
 
