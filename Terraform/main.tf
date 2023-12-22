@@ -32,17 +32,11 @@ resource "google_container_cluster" "cluster-hellooapp" {
   network           = google_compute_network.vpc.name
   subnetwork        = google_compute_subnetwork.subnet.name
 
-
-  # Use locked down service account
-  cluster_autoscaling {
-    auto_provisioning_defaults {
-      service_account = google_service_account.gke-helloapp.email
-    }
-    
-  }
-
   # Enabling Autopilot for this cluster
   enable_autopilot  = true
+  ip_allocation_policy {
+    cluster_ipv4_cidr_block = "10.2.0.0/21"
+  }
 
   resource_labels = {
     "foo"         = "bar"

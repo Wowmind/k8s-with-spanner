@@ -23,7 +23,7 @@ resource "google_service_account" "my_service_account" {
 }
 
 resource "google_project_iam_binding" "my_iam_binding" {
-  project = "var.project_id"
+  project = var.project_id
   role    = "roles/spanner.admin"
   members = [
     "serviceAccount:${google_service_account.my_service_account.email}"
