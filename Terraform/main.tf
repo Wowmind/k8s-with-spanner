@@ -35,7 +35,7 @@ resource "google_container_cluster" "sample-game-gke" {
   # Use locked down service account
   cluster_autoscaling {
     auto_provisioning_defaults {
-      service_account = google_service_account.gke-helloapp
+      service_account = google_service_account.gke-helloapp.email
     }
   }
 
