@@ -1,8 +1,6 @@
 resource "google_compute_network" "vpc" {
   name                    = "spanner-with-network"
   auto_create_subnetworks = false
-
-  depends_on = [google_project_service.service_api]
 }
 
 resource "google_compute_subnetwork" "subnet" {

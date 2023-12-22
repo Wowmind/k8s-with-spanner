@@ -13,6 +13,7 @@ resource "google_project_iam_binding" "gke-identity-binding" {
   ]
 
   depends_on = [google_service_account.gke-helloapp]
+
 }
 
 
@@ -28,3 +29,12 @@ resource "google_project_iam_binding" "my_iam_binding" {
     "serviceAccount:${google_service_account.my_service_account.email}"
   ]
 }
+/*
+resource "google_project_iam_binding" "my_iam_binding" {
+  project = "spanner-gke"
+  role    = "roles/iam.workloadIdentityUser"
+  members = [
+    "serviceAccount:spanner-gke.svc.id.goog[hello-namespace/gke-helloapp]"
+  ]
+}
+*/

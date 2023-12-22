@@ -1,0 +1,13 @@
+
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'build'
+    - '-t'
+    - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app-cloud-spanner'
+    - '.'
+  dir: 'databases/hello-app-cloud-spanner'
+
+# Push images.
+images:
+  - 'us-docker.pkg.dev/google-samples/containers/gke/hello-app-cloud-spanner'
