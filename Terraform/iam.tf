@@ -28,3 +28,11 @@ resource "google_project_iam_binding" "my_iam_binding" {
     "serviceAccount:${google_service_account.my_service_account.email}"
   ]
 }
+
+resource "google_project_iam_binding" "my_iam_binding" {
+  project = "spanner-gke"
+  role    = "roles/iam.workloadIdentityUser"
+  members = [
+    "serviceAccount:spanner-gke.svc.id.goog[hello-namespace/ksa-helloapp]"
+  ]
+}
