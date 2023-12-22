@@ -6,7 +6,9 @@ project       = var.project_id
 
 resource "google_project_iam_binding" "gke-identity-binding" {
   project       = var.project_id
-  role          = "roles/container.nodeServiceAccount"
+  role          = [
+   "roles/container.nodeServiceAccount", "roles/iam.workloadIdentityUser"
+  ]
 
   members = [
      "serviceAccount:${google_service_account.gke-helloapp.email}",
@@ -29,12 +31,3 @@ resource "google_project_iam_binding" "my_iam_binding" {
     "serviceAccount:${google_service_account.my_service_account.email}"
   ]
 }
-/*
-resource "google_project_iam_binding" "my_iam_binding" {
-  project = "spanner-gke"
-  role    = "roles/iam.workloadIdentityUser"
-  members = [
-    "serviceAccount:spanner-gke.svc.id.goog[hello-namespace/gke-helloapp]"
-  ]
-}
-*/
