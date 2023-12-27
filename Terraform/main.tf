@@ -35,7 +35,7 @@ resource "google_container_cluster" "cluster-hellooapp" {
   # Enabling Autopilot for this cluster
   enable_autopilot  = true
   ip_allocation_policy {
-    cluster_ipv4_cidr_block = "10.2.0.0/21"
+    cluster_ipv4_cidr_block = "10.2.0.0/20"
   }
 
   resource_labels = {
