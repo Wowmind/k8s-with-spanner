@@ -6,9 +6,8 @@ project       = var.project_id
 
 resource "google_project_iam_binding" "gke-identity-binding" {
   project       = var.project_id
-  role          = [
-   "roles/iam.workloadIdentityUser"
-  ]
+  role          = "roles/iam.workloadIdentityUser"
+  
 
   members = [
      "serviceAccount:${google_service_account.gke-helloapp.email}",
