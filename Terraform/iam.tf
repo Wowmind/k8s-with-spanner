@@ -10,7 +10,7 @@ resource "google_project_iam_binding" "gke-identity-binding" {
   
 
   members = [
-     "serviceAccount:${google_service_account.gke-helloapp.email}",
+     "serviceAccount:${google_service_account.gke-helloapp.email}"
   ]
 
   depends_on = [google_service_account.gke-helloapp]
