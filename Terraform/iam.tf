@@ -1,5 +1,5 @@
 resource "google_service_account" "gke-helloapp" {
-account_id    = "gke-cluster-account"
+account_id    = "gke-helloapp"
 display_name  = "gke-helloapp"
 project       = var.project_id
 }
@@ -7,7 +7,7 @@ project       = var.project_id
 resource "google_project_iam_binding" "gke-identity-binding" {
   project       = var.project_id
   role          = [
-   "roles/container.nodeServiceAccount", "roles/iam.workloadIdentityUser"
+   "roles/iam.workloadIdentityUser"
   ]
 
   members = [
