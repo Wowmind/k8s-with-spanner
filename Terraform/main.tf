@@ -29,13 +29,13 @@ resource "google_spanner_database" "hello-database" {
 resource "google_container_cluster" "cluster-hellooapp" {
   name              = var.gke_config.cluster_name
   location          = var.gke_config.location
-  network           = google_compute_network.vpc.name
+  network           = google_compute_network.spanner-network.name
   subnetwork        = google_compute_subnetwork.subnet.name
 
   # Enabling Autopilot for this cluster
   enable_autopilot  = true
   ip_allocation_policy {
-    cluster_ipv4_cidr_block = "10.2.0.0/20"
+    cluster_ipv4_cidr_block = "10.2.0.0/21"
   }
 
   resource_labels = {

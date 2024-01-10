@@ -19,7 +19,7 @@ resource "google_project_iam_binding" "gke-identity-binding" {
 
 
 resource "google_service_account" "my_service_account" {
-  account_id   = "gsa-helloapp"
+  account_id   = "gsa-hello"
   display_name = "My Service Account"
 }
 
